@@ -27,7 +27,11 @@ require("lazy").setup({
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
   install = { colorscheme = { "tokyonight", "habamax" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = { enabled = false }, -- automatically check for plugin updates
+  change_detection = {
+    enabled = true,
+    notify = false,
+  },
   performance = {
     rtp = {
       -- disable some rtp plugins
@@ -42,5 +46,9 @@ require("lazy").setup({
         "zipPlugin",
       },
     },
+  },
+  git = {
+    timeout = 200, -- kill processes that take more than 2 minutes
+    url_format = "https://mirror.ghproxy.com/https://github.com/%s.git",
   },
 })
